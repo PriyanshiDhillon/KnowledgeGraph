@@ -11,11 +11,11 @@
 
 This project constructs and analyzes a Knowledge Graph (KG) of Human-AI collaboration dynamics, focusing on how **autonomy level**, **explainability level**, and **agreement level** jointly influence **outcome quality** across different collaboration scenarios.
 
-We extend the [Hybrid Intelligence Ontology v2](https://github.com/HybridIntelligence/HI-ontology) with four analytical dimensions and populate it with:
+We extend the Hybrid Intelligence Ontology v2 with four analytical dimensions and populate it with:
 - **21 use cases** extracted from 7 HHAI-domain research papers
 - **6 Human-AI collaboration scenarios** (3 from real HI competition data, 3 manually designed intermediate cases)
 
-The graph is analyzed using SPARQL queries, graph metrics (density, PageRank, betweenness centrality), and a ComplEx embedding model for link prediction via [PyKEEN](https://pykeen.readthedocs.io/).
+The graph is analyzed using SPARQL queries, graph metrics (density, PageRank, betweenness centrality), and a ComplEx embedding model for link prediction via PyKEEN.
 
 **Key finding:** High explainability is a stronger predictor of good outcomes than high autonomy alone. Forced agreement always leads to bad outcomes regardless of other factors.
 
@@ -38,8 +38,8 @@ KnowledgeGraph/
 
 ### For Ontology and SPARQL (GraphDB)
 
-- [GraphDB Free 10.x](https://www.ontotext.com/products/graphdb/download/) — used to load the ontology and run SPARQL queries
-- [Protégé 5.x](https://protege.stanford.edu/) — used for ontology development and HermiT reasoning (optional, for inspection)
+- GraphDB Free 10.x— used to load the ontology and run SPARQL queries
+- Protégé 5.x — used for ontology development and HermiT reasoning (optional, for inspection)
 
 ### For Machine Learning (Python)
 
@@ -47,12 +47,6 @@ Python 3.11 is recommended. Install dependencies with:
 
 ```bash
 pip install pykeen torch networkx matplotlib rdflib jupyter
-```
-
-Or install from a requirements file if provided:
-
-```bash
-pip install -r requirements.txt
 ```
 
 Key packages used:
@@ -70,8 +64,8 @@ Key packages used:
 
 ### Step 1 — Load the Ontology into GraphDB
 
-1. Download and launch [GraphDB Free](https://www.ontotext.com/products/graphdb/download/)
-2. Create a new repository (e.g., `hi-kg`)
+1. Download and launch GraphDB Free
+2. Create a new repository
 3. Import `Final.ttl` via **Import → RDF Files → Upload**
 4. Enable the HermiT reasoner: **Repository Settings → Reasoner → OWL2-RL** (or use Protégé for full OWL2 reasoning)
 
@@ -84,8 +78,9 @@ After import, the graph contains **3004 triples** (including inferred statements
 Open the SPARQL editor in GraphDB (`http://localhost:7200`) and run the queries below. All queries use the prefix:
 
 ```sparql
-PREFIX hi: <http://www.semanticweb.org/hi-ontology#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX hi: <https://w3id.org/hi-ontology#>
 ```
 
 ---
@@ -251,19 +246,18 @@ Constraints are extracted automatically via SPARQL queries over the ontology, ma
 
 ---
 
-## Citation
+## Source Papers
 
-If you use this ontology or dataset, please cite:
+The 21 use cases in the knowledge graph were extracted from the following 7 research papers:
 
-```
-Banyai, G. B., & Dhillon, P. (2026). Modeling Human-AI Collaboration Dynamics: 
-A Knowledge Graph Approach to Autonomy, Explainability, and Outcome Analysis. 
-Vrije Universiteit Amsterdam.
-```
+| # | Authors | Title | Year |
+|---|---|---|---|---|
+| 1 | Mukherjee, S., Jonker, C. M., Murukannaiah, P. K. | Exploring Human-AI Synergy for Complex Claim Verification | 2025 |
+| 2 | Pellungrini, R., Mazzoni, F., Guidotti, R. | Bridging the Gap in Hybrid Decision-Making Systems | 2024 |
+| 3 | Verhagen, R. S., Neerincx, M. A., Yang, X. J., Tielman, M. L. | Advancing Human-Machine Teaming: Definitions, Challenges, and Future Directions | 2024 |
+| 4 | Fanti, A., Frattolillo, F., Laudati, R., Patrizi, F., Iocchi, L. | Human-AI Collaboration via Trust Factors: A Collaborative Game Use Case | 2024 |
+| 5 | Maathuis, H., Kolkman, D., Leijnen, S., Sent, D. | Formalizing Explanation Design Through Interaction Patterns in Human-AI Decision Support | 2024 |
+| 6 | Sartori, L., Binelli, C., Lizzi, F., Sensi, F., Retico, A. | How Do Doctors Perceive AI in Their Medical Practice? | 2023 |
+| 7 | Todsen, A. L. | Managing Uncertainty: AI Tools in Medical Decision-Making | 2023 |
 
----
-
-## Contact
-
-- Gergely Bela Banyai — g.b.banyai@student.vu.nl  
-- Priyanshi Dhillon — p.dhillon@student.vu.nl
+> These papers were selected from the [HHAI 2024 Conference Proceedings](https://ebooks.iospress.nl/doi/10.3233/FAIA408) to represent diverse Human-AI collaboration application areas including healthcare, education, cybersecurity, and scientific research.
