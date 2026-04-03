@@ -251,7 +251,7 @@ Constraints are extracted automatically via SPARQL queries over the ontology, ma
 The 21 use cases in the knowledge graph were extracted from the following 7 research papers:
 
 | # | Authors | Title | Year |
-|---|---|---|---|---|
+|---|---|---|---|
 | 1 | Mukherjee, S., Jonker, C. M., Murukannaiah, P. K. | Exploring Human-AI Synergy for Complex Claim Verification | 2025 |
 | 2 | Pellungrini, R., Mazzoni, F., Guidotti, R. | Bridging the Gap in Hybrid Decision-Making Systems | 2024 |
 | 3 | Verhagen, R. S., Neerincx, M. A., Yang, X. J., Tielman, M. L. | Advancing Human-Machine Teaming: Definitions, Challenges, and Future Directions | 2024 |
